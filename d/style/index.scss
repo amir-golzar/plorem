@@ -1,0 +1,241 @@
+@import "colors";
+@import "utliti";
+@import "function";
+
+* {
+  padding: 0;
+  margin: 0;
+}
+*::selection {
+  background-color: red;
+  color: rgb(255, 255, 255);
+}
+body {
+  text-align: end;
+  line-height: 1.6;
+  background-color: #ffffff;
+}
+a {
+  text-decoration: none;
+  color: $dark;
+}
+ul {
+  list-style-type: none;
+}
+img {
+  width: 100%;
+}
+#mine-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  flex-direction: row-reverse;
+  ul {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  li {
+    padding: 1rem 0.5rem;
+  }
+  a {
+    font-weight: bolder;
+    color: #ffffff;
+    border-bottom: 3px transparent solid;
+    padding-bottom: 0.5rem;
+    @include transition(border-color, 0.5s);
+    &:hover {
+      border-color: $medium-color;
+    }
+    &.active {
+      border-color: $primariy;
+    }
+  }
+}
+#header {
+  &-home {
+    background: linear-gradient(rgba(20, 20, 20, 0.5), rgba(20, 20, 20, 0.5)),
+      $bg-img no-repeat center center/cover;
+    height: 100vh;
+    color: #ffffff;
+
+    .header-content {
+      text-align: center;
+      padding-top: 10%;
+
+      h1 {
+        font-size: 3rem;
+        // line-height: 5.2rem;
+      }
+    }
+  }
+}
+#home {
+  &-1 {
+    .items {
+      margin-top: 3rem;
+      // color: aqua;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 1rem;
+    }
+    .fas {
+      color: $primariy;
+      padding-bottom: 0.4rem;
+    }
+    // .section-title{margin-top: 1rem;}
+  }
+  &-2 {
+    li {
+      line-height: 2;
+      &.items-title {
+        font-size: 1.5rem;
+      }
+      &.items-number {
+        font-size: 2rem;
+      }
+    }
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    // margin-bottompx;
+    div {
+      padding: 3rem 0;
+      &:nth-child(even) {
+        background-color: $primariy;
+        color: #fff;
+      }
+      &:nth-child(odd) {
+        background-color: $light;
+      }
+    }
+  }
+
+  &-3 {
+    .process {
+      // color: aqua;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 1.5rem;
+      // color: aqua;
+
+      text-align: center;
+
+      &-step {
+        // color: aqua;
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 28px;
+        background-color: $primariy;
+        border-radius: 50%;
+        color: set-text-color($primariy);
+        height: 15px;
+        width: 15px;
+        line-height: 15px;
+        padding: 1rem;
+        @include transition(all, 1s);
+      }
+      &-icon {
+        border-radius: 50%;
+        background-color: $dark;
+        color: set-text-color($dark);
+        padding: 2rem;
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+        text-align: center;
+        position: relative;
+        @include transition(all, 0.7s);
+        &:hover {
+          // color: #fff;
+          background-color: $primariy;
+          width: 90px;
+          height: 90px;
+          line-height: 90px;
+          .process-step {
+            background-color: $dark;
+            color: set-text-color($dark);
+          }
+        }
+      }
+    }
+  }
+}
+#main-footer {
+  background-color: $dark;
+  color: #fff;
+  height: 5rem;
+  text-align: center;
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    height: 5rem;
+    align-items: center;
+    .social .fab {
+      margin-right: 1rem;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      height: 20px;
+      width: 20px;
+      line-height: 20px;
+      text-align: center;
+      padding: 0.5rem;
+      &:hover {
+        background-color: $primariy;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 720px) {
+  .header-content{
+    h1{font-size: 2rem;}
+  }
+  #header{
+    &-home{
+    height: 70vh;
+
+    }
+    
+  }
+  #mine-nav{
+    ul{
+      width: 80%;
+      font-size: 15px;
+    }
+    color: aqua;
+    h1{
+      font-size: 14.5px;
+    }
+  }
+
+  #home {
+    &-1 {
+      .items {
+        // color: aqua;
+        // display: block;
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    &-2 {
+      display: grid;
+
+      grid-template-columns: repeat(1, 1fr);
+    }
+    &-3 {
+      .process {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+  }
+
+    
+  footer{
+    padding: 10px;
+    .social{
+line-height: 50px;
+      width: 40%;
+
+    }
+  }
+}
